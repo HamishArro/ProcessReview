@@ -18,10 +18,28 @@ class ProcessReviewTests: XCTestCase {
         XCTAssertEqual(result.0, "1")
     }
     
-    func testWhenSimpleInput() {
-        let result = evaluate("12")
-        XCTAssertEqual(result.1, 12)
-        XCTAssertEqual(result.0, "12")
+    func testWhenSimpleAddition() {
+        let result = evaluate("1 + 1")
+        XCTAssertEqual(result.1, 2)
+        XCTAssertEqual(result.0, "1 + 1")
+    }
+    
+    func testWhenSimpleSubtracion() {
+        let result = evaluate("1 - 1")
+        XCTAssertEqual(result.1, 0)
+        XCTAssertEqual(result.0, "1 - 1")
+    }
+    
+    func testWhenSimpleMultiplication() {
+        let result = evaluate("1 * 1")
+        XCTAssertEqual(result.1, 1)
+        XCTAssertEqual(result.0, "1 * 1")
+    }
+    
+    func testWhenSimpleDivision() {
+        let result = evaluate("1 / 1")
+        XCTAssertEqual(result.1, 1)
+        XCTAssertEqual(result.0, "1 / 1")
     }
 
 }

@@ -8,17 +8,17 @@
 import Foundation
 
 func evaluate(_ input: String) -> (String, Int) {
-    var components = input.split(separator: " ")
-    var result: Int
-    if components.count > 1 {
+    let components = input.split(separator: " ").map { String($0) }
+    var result = Int(components[0])!
+    if components.count == 3 {
+        let modifier = Int(components[2])!
         switch components[1] {
-        case "+": result = Int(components[0]) + Int(components[2])
-        case "-": result = Int(components[0]) - Int(components[2])
-        case "*": result = Int(components[0]) * Int(components[2])
-        case "/": result = Int(components[0]) / Int(components[2])
-        default: print(components)
+        case "+": result += modifier
+        case "-": result -= modifier
+        case "*": result *= modifier
+        case "/": result /= modifier
+        default: print("Error - Inncorrect input")
         }
-        return (input, result)
-    } else {return (input, Int(input))}
-    
+    }
+    return (input, result)
 }
