@@ -7,5 +7,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
+func evaluate(_ input: String) -> (String, Int) {
+    return (input, 1)
+}
