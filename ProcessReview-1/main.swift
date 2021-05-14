@@ -7,7 +7,7 @@
 
 import Foundation
 
-func evaluate(_ input: String) -> (String, Int) {
+func evaluate(_ input: String) throws -> (String, Int) {
     let components = input.split(separator: " ").map { String($0) }
     var result = Int(components[0])!
     if components.count == 3 {
@@ -17,8 +17,12 @@ func evaluate(_ input: String) -> (String, Int) {
         case "-": result -= modifier
         case "*": result *= modifier
         case "/": result /= modifier
-        default: print("Error - Inncorrect input")
+        default: throw EvaluateError.invalidInput
         }
     }
     return (input, result)
+}
+
+enum EvaluateError: Error {
+    case invalidInput
 }
