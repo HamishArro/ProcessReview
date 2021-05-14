@@ -21,7 +21,7 @@ func evaluate(_ input: String) throws -> (String, Int) {
         case "/": result /= modifier
         default: throw EvaluateError.invalidSymbol
         }
-    }
+    } else if components.count > 3 { throw EvaluateError.invalidInput }
     return (input, result)
 }
 
