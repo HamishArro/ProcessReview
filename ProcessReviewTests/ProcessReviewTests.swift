@@ -12,7 +12,7 @@ class ProcessReviewTests: XCTestCase {
     
     func testWhenWrongSymbol() throws {
         XCTAssertThrowsError(try evaluate("1 & 1")) // just checks to see if an error is thrown & below checks the type of error thrown
-        XCTAssertThrowsError(try evaluate("1 % 1"), "evaluate() should throw error when inccorect input", { (errorThrown) in
+        XCTAssertThrowsError(try evaluate("1 % 1"), "evaluate() should throw error when inccorect symbol", { (errorThrown) in
             XCTAssertEqual(errorThrown as? EvaluateError, EvaluateError.invalidSymbol)
         })
     }
@@ -32,7 +32,7 @@ class ProcessReviewTests: XCTestCase {
     
     func testFiveInputs() throws {
         XCTAssertThrowsError(try evaluate("1 + 1 + 4"))
-        XCTAssertThrowsError(try evaluate("1 + 1 + 4"), "evaluate() should throw error when inccorect input", { (errorThrown) in
+        XCTAssertThrowsError(try evaluate("1 + 1 + 4"), "evaluate() should throw error when too many componemts", { (errorThrown) in
             XCTAssertEqual(errorThrown as? EvaluateError, EvaluateError.tooManyComponents)
         })
     }

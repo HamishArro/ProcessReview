@@ -36,7 +36,7 @@ extension EvaluateError: LocalizedError {
         switch self {
         case .invalidSymbol:
             return NSLocalizedString(
-                "Inncorrect Symbol inputed",
+                "Incorrect Symbol inputed",
                 comment: ""
             )
         case .invalidInput:
