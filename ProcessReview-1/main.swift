@@ -21,12 +21,35 @@ func evaluate(_ input: String) throws -> (String, Int) {
         case "/": result /= modifier
         default: throw EvaluateError.invalidSymbol
         }
-    } else if components.count > 3 { throw EvaluateError.invalidInput }
+    } else if components.count > 3 { throw EvaluateError.tooManyComponents }
     return (input, result)
 }
 
 enum EvaluateError: Error {
     case invalidSymbol
     case invalidInput
+    case tooManyComponents
+}
+
+extension EvaluateError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .invalidSymbol:
+            return NSLocalizedString(
+                "Inncorrect Symbol inputed",
+                comment: ""
+            )
+        case .invalidInput:
+            return NSLocalizedString(
+                "Input cannot contain letters",
+                comment: ""
+            )
+        case .tooManyComponents:
+            return NSLocalizedString(
+                "Input has too many components cannot have more than three",
+                comment: ""
+            )
+        }
+    }
 }
  

@@ -33,7 +33,7 @@ class ProcessReviewTests: XCTestCase {
     func testFiveInputs() throws {
         XCTAssertThrowsError(try evaluate("1 + 1 + 4"))
         XCTAssertThrowsError(try evaluate("1 + 1 + 4"), "evaluate() should throw error when inccorect input", { (errorThrown) in
-            XCTAssertEqual(errorThrown as? EvaluateError, EvaluateError.invalidInput)
+            XCTAssertEqual(errorThrown as? EvaluateError, EvaluateError.tooManyComponents)
         })
     }
 
