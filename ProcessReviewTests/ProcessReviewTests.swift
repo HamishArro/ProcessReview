@@ -49,22 +49,10 @@ class ProcessReviewTests: XCTestCase {
         XCTAssertEqual(result.0, "1 + 1")
     }
     
-    func testWhenAdvancedAddition() throws {
-        let result = try evaluate("1293232 + 2123134")
-        XCTAssertEqual(result.1, 3416366)
-        XCTAssertEqual(result.0, "1293232 + 2123134")
-    }
-    
     func testWhenSimpleSubtracion() throws {
         let result = try evaluate("1 - 1")
         XCTAssertEqual(result.1, 0)
         XCTAssertEqual(result.0, "1 - 1")
-    }
-    
-    func testWhenAdvancedSubtracion() throws {
-        let result = try evaluate("23532525 - 4353")
-        XCTAssertEqual(result.1, 23528172)
-        XCTAssertEqual(result.0, "23532525 - 4353")
     }
     
     func testWhenSimpleMultiplication() throws {
@@ -73,22 +61,10 @@ class ProcessReviewTests: XCTestCase {
         XCTAssertEqual(result.0, "1 * 1")
     }
     
-    func testWhenAdvancedMultiplication() throws {
-        let result = try evaluate("3231 * 2141")
-        XCTAssertEqual(result.1, 6917571)
-        XCTAssertEqual(result.0, "3231 * 2141")
-    }
-    
     func testWhenSimpleDivision() throws {
         let result = try evaluate("1 / 1")
         XCTAssertEqual(result.1, 1)
         XCTAssertEqual(result.0, "1 / 1")
-    }
-    
-    func testWhenAdvancedDivision() throws {
-        let result = try evaluate("6917571 / 3231")
-        XCTAssertEqual(result.1, 2141)
-        XCTAssertEqual(result.0, "6917571 / 3231")
     }
 
 }
