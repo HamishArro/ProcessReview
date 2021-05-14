@@ -7,22 +7,26 @@
 
 import Foundation
 
+let letters = CharacterSet.letters
+
 func evaluate(_ input: String) throws -> (String, Int) {
     let components = input.split(separator: " ").map { String($0) }
-    var result = Int(components[0])!
+    guard var result = Int(components[0]) else { throw EvaluateError.invalidInput }
     if components.count == 3 {
-        let modifier = Int(components[2])!
+        guard let modifier = Int(components[2]) else { throw EvaluateError.invalidInput }
         switch components[1] {
         case "+": result += modifier
         case "-": result -= modifier
         case "*": result *= modifier
         case "/": result /= modifier
-        default: throw EvaluateError.invalidInput
+        default: throw EvaluateError.invalidSymbol
         }
     }
     return (input, result)
 }
 
 enum EvaluateError: Error {
+    case invalidSymbol
     case invalidInput
 }
+ 
