@@ -21,11 +21,6 @@
                BlueprintName = "ProcessReviewTests"
                ReferencedContainer = "container:ProcessReview-1.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "ProcessReviewTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
